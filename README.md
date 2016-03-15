@@ -36,7 +36,22 @@ It's Makers BnB, but Improved! We've rebuilt this project using Rails on the bac
 
 
 ## Testing Instructions
-- :construction:
+
+### RSpec (Rails - unit and feature tests)
+- rails g rspec:install (optional)
+- rspec
+
+### Karma (JavaScript/Angular - unit testing)
+- npm install -g karma-cli (optional)
+- rails s (separate tab)
+- karma start
+
+### Protractor (JavaScript/Angular - e2e testing)
+- npm install -g protractor
+- webdriver-manager update --standalone
+- webdriver-manager start --standalone (keep this running in a separate tab)
+- rails s (separate tab)
+- protractor protractor.conf.js (another tab)
 
 
 ## Implementation
