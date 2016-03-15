@@ -1,5 +1,10 @@
 # Makers BnB Improved
 
+## Repo Badges
+
+[![Build Status](https://travis-ci.org/ggwc82/makers-bnb-angular-rails.svg?branch=master)](https://travis-ci.org/ggwc82/makers-bnb-angular-rails)[![Coverage Status](https://coveralls.io/repos/github/ggwc82/makers-bnb-angular-rails/badge.svg?branch=master)](https://coveralls.io/github/ggwc82/makers-bnb-angular-rails?branch=master)
+
+
 ## Description
 
 It's Makers BnB, but Improved! We've rebuilt this project using Rails on the backend and AngularJS on the frontend. 
