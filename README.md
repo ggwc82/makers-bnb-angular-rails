@@ -25,7 +25,14 @@ It's Makers BnB, but Improved! We've rebuilt this project using Rails on the bac
 
 
 ## Installation Instructions
-- :construction:
+- Clone the repo
+- bundle install
+- rake db:create
+- rake db:migrate
+- bundle install
+- rake bower:install
+- rails s
+- Go to http://localhost:3000 in your browser
 
 
 ## Testing Instructions
