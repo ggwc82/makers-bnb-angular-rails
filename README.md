@@ -29,7 +29,7 @@ It's Makers BnB, but Improved! We've rebuilt this project using Rails on the bac
 - bundle install
 - rake db:create
 - rake db:migrate
-- bundle install
+- npm install bower -g
 - rake bower:install
 - rails s
 - Go to http://localhost:3000 in your browser
@@ -42,9 +42,11 @@ It's Makers BnB, but Improved! We've rebuilt this project using Rails on the bac
 - rspec
 
 ### Karma (JavaScript/Angular - unit testing)
+- npm install karma (sudo if needed)
 - npm install -g karma-cli (optional)
+- npm install karma --save-dev
 - rails s (separate tab)
-- karma start
+- ./node_modules/karma/bin/karma start
 
 ### Protractor (JavaScript/Angular - e2e testing)
 - npm install -g protractor
