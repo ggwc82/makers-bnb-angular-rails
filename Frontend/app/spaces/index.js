@@ -9,6 +9,14 @@ angular.module('makersBnB.index', ['ngRoute'])
   });
 }])
 
-.controller('SpacesCtrl', [function() {
+.controller('SpacesCtrl', [ '$scope','$http',  function( $scope, $http) {
+
+
+  this.getSpaces = function(){
+    $http.get('http://localhost:3000/spaces.json').then(function(response){
+      $scope.spaces = response.data;
+    });
+  };
+  $scope.spaces = this.getSpaces();
 
 }]);
