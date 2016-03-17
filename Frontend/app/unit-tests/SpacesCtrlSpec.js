@@ -19,6 +19,10 @@ describe('makersBnB', function() {
         $httpBackend.flush();
         expect(scope.spaces.length).toBe(1);
       });
+
+      xit('should create a new space', function(){
+
+      })
     });
 });
 

@@ -1,5 +1,16 @@
 
-<p>This is the partial for {{2+2}}.</p>
+<form novalidate class='create-space-form'>
+name: <input type='text' ng-model='space.name' /><br/>
+price: <input type='integer' ng-model='space.price' /><br/>
+location: <input type='text' ng-model='space.location' /><br/>
+size: <input type='float' ng-model='space.size' /><br/>
+property type: <input type='text' ng-model='space.property_type' /><br/>
+<input type='submit' ng-click='create(space)' value='Create space' />
+</form>
+
+<pre>space = {{ space | json }} </pre>
+
+<p>-------------------------------------</p>
 <button ng-click='getSpaces()'>Get space</button>
 <ul ng-repeat='space in spaces'>
   <li>{{space.id}}:{{space.name}}</li>
