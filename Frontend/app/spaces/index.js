@@ -13,8 +13,9 @@ angular.module('makersBnB.index', ['ngRoute'])
 
 
   this.getSpaces = function(){
+
     $http.get('http://localhost:3000/spaces.json').then(function(response){
-      $scope.spaces = response.data;
+      $scope.spaces = response.data.splice(0, 25);
     });
   };
   $scope.spaces = this.getSpaces();
