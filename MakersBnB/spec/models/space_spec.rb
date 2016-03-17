@@ -4,7 +4,7 @@ RSpec.describe Space, type: :model do
   describe "Space" do
     it "can create a space" do
       new_space = create(:space)
-      expect(new_space.id).to eq 15
+      expect(new_space.id).to eq 17
     end
 
     it "has a name" do

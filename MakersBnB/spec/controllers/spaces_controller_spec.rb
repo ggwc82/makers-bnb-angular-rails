@@ -43,10 +43,18 @@ RSpec.describe SpacesController, type: :controller do
     }
   }
 
-  describe "Post #create" do
+  describe "POST #create" do
     it 'saves a space object' do
       post :create, {space: valid_attributes, format: :json}
       expect(Space.last.name).to eq 'my space'
+    end
+  end
+
+  describe "DELETE #destroy" do
+    it 'delete a space' do
+      create(:space)
+      delete :destroy, format: :json, id: 3
+      expect(Space.where(id: 3)).to be_empty
     end
   end
 
