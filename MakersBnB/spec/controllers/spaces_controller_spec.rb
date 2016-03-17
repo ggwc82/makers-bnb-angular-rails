@@ -43,6 +43,13 @@ RSpec.describe SpacesController, type: :controller do
     }
   }
 
+  describe "Post #create" do
+    it 'saves a space object' do
+      post :create, {space: valid_attributes, format: :json}
+      expect(Space.last.name).to eq 'my space'
+    end
+  end
+
   let(:invalid_attributes) {
     skip("Add a hash of attributes invalid for your model")
   }
