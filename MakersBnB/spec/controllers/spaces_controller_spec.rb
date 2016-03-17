@@ -24,7 +24,12 @@ RSpec.describe SpacesController, type: :controller do
   # Space. As you add validations to Space, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+      {name: "my space",
+      price: 234,
+      location: "newcastle",
+      size: 3,
+      property_type: "lighthouse"
+    }
   }
 
   let(:invalid_attributes) {
