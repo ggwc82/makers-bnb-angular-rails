@@ -10,6 +10,7 @@ require 'shoulda-matchers'
 require 'factory_girl_rails'
 require_relative 'support/factory_girl.rb'
 require_relative 'support/database_cleaner.rb'
+require_relative 'support/api_helper.rb'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
