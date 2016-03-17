@@ -35,13 +35,22 @@ RSpec.describe SpacesController, type: :controller do
   # Space. As you add validations to Space, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-      {name: "my space",
+    {
+      name: "my space",
       price: 234,
       location: "newcastle",
       size: 3,
       property_type: "lighthouse"
     }
   }
+
+  describe "GET #show" do
+    it "returns a single space" do
+      space = create(:space)
+      get :index, id: space, format: :json
+      expect(json.last['name']).to eq 'my space'
+    end
+  end
 
   describe "POST #create" do
     it 'saves a space object' do
@@ -53,8 +62,8 @@ RSpec.describe SpacesController, type: :controller do
   describe "DELETE #destroy" do
     it 'delete a space' do
       create(:space)
-      delete :destroy, format: :json, id: 3
-      expect(Space.where(id: 3)).to be_empty
+      delete :destroy, format: :json, id: 4
+      expect(Space.where(id: 4)).to be_empty
     end
   end
 
