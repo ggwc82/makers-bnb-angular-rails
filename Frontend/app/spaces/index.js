@@ -15,16 +15,20 @@ angular.module('makersBnB.index', ['ngRoute'])
   //self.createSpace = function(){
     console.log('here first')
     self.master = {};
+    $scope.status;
 
-    self.create = function(space) {
-      self.master = angular.copy(space);
-      $http.post('http://localhost:3000/spaces/create', self.master, config).then(successCallback, errorCallback);
+    //works when it is defined as $scope below:
+    $scope.create = function(space) {
+      $http.post('http://localhost:3000/spaces', space).success(function() {
+            //var spaces = [];
+            //spaces.push(data);
+        });
     };  
   //};
   
   self.getSpaces = function(){
     $http.get('http://localhost:3000/spaces.json').then(function(response){
-      $scope.spaces = response.data.splice(0, 25);
+      $scope.spaces = response.data.reverse().splice(0,25);
     });
   };
   $scope.spaces = self.getSpaces();

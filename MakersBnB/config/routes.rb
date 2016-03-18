@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   match '*any' => 'application#options', :via => [:options]
 
-  resources :spaces
+  
 
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -36,9 +36,11 @@ Rails.application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
-# namespace :api, defaults: { format: :json } do
-   post 'spaces' => 'spaces#create'
-# end
+post 'spaces' => 'spaces#create'
+ #namespace :api, defaults: { format: :json } do
+   
+   resources :spaces
+ #end
   # Example resource route with more complex sub-resources:
   #   resources :products do
   #     resources :comments
