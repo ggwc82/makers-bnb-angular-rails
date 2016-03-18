@@ -36,7 +36,9 @@ Rails.application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
-
+# namespace :api, defaults: { format: :json } do
+   post 'spaces' => 'spaces#create'
+# end
   # Example resource route with more complex sub-resources:
   #   resources :products do
   #     resources :comments
