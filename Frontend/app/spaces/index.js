@@ -19,7 +19,7 @@ angular.module('makersBnB.index', ['ngRoute'])
 
     //works when it is defined as $scope below:
     $scope.create = function(space) {
-      $http.post('http://localhost:3000/spaces', space).success(function() {
+      $http.post('http://localhost:3000/api/spaces', space).success(function() {
             //var spaces = [];
             //spaces.push(data);
         });
@@ -27,7 +27,7 @@ angular.module('makersBnB.index', ['ngRoute'])
   //};
   
   self.getSpaces = function(){
-    $http.get('http://localhost:3000/spaces.json').then(function(response){
+    $http.get('http://localhost:3000/api/spaces.json').then(function(response){
       $scope.spaces = response.data.reverse().splice(0,25);
     });
   };
