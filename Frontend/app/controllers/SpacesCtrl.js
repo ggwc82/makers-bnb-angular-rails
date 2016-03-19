@@ -1,23 +1,33 @@
 'use strict';
 
-makersBnB.controller('SpacesCtrl', ['$scope','$http', function($scope, $http) {
+makersBnB.controller('SpacesCtrl', ['$http', '$location', function( $http, $location) {
   var self = this;
-  $scope.spaces = [];
-  $scope.currentspace;
+  self.spaces = [];
+  self.currentspace;
 
-  $scope.create = function(space) {
+  self.create = function(space) {
     $http.post('http://localhost:3000/api/spaces', space).success(function(data) {
       console.log(data)
-      $scope.spaces.push(data);
-      self.currentspace = data.space;
-      console.log("currentspace id " + self.currentspace.id)
+      self.spaces.push(data);
+      // self.currentspace = data.space;
+      self.showSpace(data.space);
 
     });
-  };  
-  
-  $scope.getSpaces = function(){
+  };
+
+  self.getSpaces = function(){
     $http.get('http://localhost:3000/api/spaces.json').then(function(response){
-      $scope.spaces = response.data.reverse();
+      self.spaces = response.data.reverse();
     });
   };
+
+  self.showSpace = function(space){
+    $http.get('http://localhost:3000/api/spaces/' + space.id).then(function(response){
+      self.currentspace = response.data;
+      $location.path('/spaces/' + space.id)
+    });
+  };
+
+
+
 }]);
