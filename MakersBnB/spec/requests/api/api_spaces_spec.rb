@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Spaces", type: :request do
-  describe "GET /spaces" do
+RSpec.describe "Api::Spaces", type: :request do
+  describe "GET /api_spaces" do
     it "works! (now write some real specs)" do
-      get spaces_path
+      get api_spaces_path
       expect(response).to have_http_status(200)
     end
   end

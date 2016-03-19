@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  match '*any' => 'application#options', :via => [:options]
-
   
+  namespace :api do
+    resources :spaces
+  end
 
+  match '*any' => 'application#options', :via => [:options]
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -36,11 +39,7 @@ Rails.application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
-post 'spaces' => 'spaces#create'
- #namespace :api, defaults: { format: :json } do
-   
-   resources :spaces
- #end
+
   # Example resource route with more complex sub-resources:
   #   resources :products do
   #     resources :comments

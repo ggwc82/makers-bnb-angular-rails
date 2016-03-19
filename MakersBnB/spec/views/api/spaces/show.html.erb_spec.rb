@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "spaces/show", type: :view do
+RSpec.describe "api/spaces/show", type: :view do
   before(:each) do
-    @space = assign(:space, Space.create!(
+    @api_space = assign(:api_space, Api::Space.create!(
       :name => "Name",
       :price => 1,
       :location => "Location",

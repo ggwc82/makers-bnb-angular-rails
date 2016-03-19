@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe "spaces/index", type: :view do
+RSpec.describe "api/spaces/index", type: :view do
   before(:each) do
-    assign(:spaces, [
-      Space.create!(
+    assign(:api_spaces, [
+      Api::Space.create!(
         :name => "Name",
         :price => 1,
         :location => "Location",
         :size => 1.5,
         :property_type => "Property Type"
       ),
-      Space.create!(
+      Api::Space.create!(
         :name => "Name",
         :price => 1,
         :location => "Location",
@@ -20,7 +20,7 @@ RSpec.describe "spaces/index", type: :view do
     ])
   end
 
-  it "renders a list of spaces" do
+  it "renders a list of api/spaces" do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => 1.to_s, :count => 2

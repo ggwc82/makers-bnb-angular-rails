@@ -1,6 +1,6 @@
-class CreateSpaces < ActiveRecord::Migration
+class CreateApiSpaces < ActiveRecord::Migration
   def change
-    create_table :spaces do |t|
+    create_table :api_spaces do |t|
       t.string :name
       t.integer :price
       t.string :location

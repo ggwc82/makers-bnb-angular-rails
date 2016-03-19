@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @api_space.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @api_space.price %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @api_space.location %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @api_space.size %>
+</p>
+
+<p>
+  <strong>Property type:</strong>
+  <%= @api_space.property_type %>
+</p>
+
+<%= link_to 'Edit', edit_api_space_path(@api_space) %> |
+<%= link_to 'Back', api_spaces_path %>

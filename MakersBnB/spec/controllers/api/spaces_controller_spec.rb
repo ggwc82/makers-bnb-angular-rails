@@ -18,7 +18,7 @@ require 'rails_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-RSpec.describe SpacesController, type: :controller do
+RSpec.describe Api::SpacesController, type: :controller do
   render_views
 
   let(:json) { JSON.parse(response.body) }
@@ -32,7 +32,7 @@ RSpec.describe SpacesController, type: :controller do
   end
 
   # This should return the minimal set of attributes required to create a valid
-  # Space. As you add validations to Space, be sure to
+  # Api::Space. As you add validations to Api::Space, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     {
@@ -43,6 +43,15 @@ RSpec.describe SpacesController, type: :controller do
       property_type: "lighthouse"
     }
   }
+
+  let(:invalid_attributes) {
+    skip("Add a hash of attributes invalid for your model")
+  }
+
+  # This should return the minimal set of values that should be in the session
+  # in order to pass any filters (e.g. authentication) defined in
+  # Api::SpacesController. Be sure to keep this updated too.
+  let(:valid_session) { {} }
 
   describe "GET #show" do
     it "returns a single space" do
@@ -55,7 +64,7 @@ RSpec.describe SpacesController, type: :controller do
   describe "POST #create" do
     it 'saves a space object' do
       post :create, {space: valid_attributes, format: :json}
-      expect(Space.last.name).to eq 'my space'
+      expect(Api::Space.last.name).to eq 'my space'
     end
   end
 
@@ -63,74 +72,65 @@ RSpec.describe SpacesController, type: :controller do
     it 'delete a space' do
       create(:space)
       delete :destroy, format: :json, id: 4
-      expect(Space.where(id: 4)).to be_empty
+      expect(Api::Space.where(id: 4)).to be_empty
     end
   end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
-
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # SpacesController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
-
   describe "GET #index" do
-    it "assigns all spaces as @spaces" do
-      space = Space.create! valid_attributes
+    it "assigns all api_spaces as @api_spaces" do
+      space = Api::Space.create! valid_attributes
       get :index, {}, valid_session
-      expect(assigns(:spaces)).to eq([space])
+      expect(assigns(:api_spaces)).to eq([space])
     end
   end
 
   describe "GET #show" do
-    it "assigns the requested space as @space" do
-      space = Space.create! valid_attributes
+    it "assigns the requested api_space as @api_space" do
+      space = Api::Space.create! valid_attributes
       get :show, {:id => space.to_param}, valid_session
-      expect(assigns(:space)).to eq(space)
+      expect(assigns(:api_space)).to eq(space)
     end
   end
 
   describe "GET #new" do
-    it "assigns a new space as @space" do
+    it "assigns a new api_space as @api_space" do
       get :new, {}, valid_session
-      expect(assigns(:space)).to be_a_new(Space)
+      expect(assigns(:api_space)).to be_a_new(Api::Space)
     end
   end
 
   describe "GET #edit" do
-    it "assigns the requested space as @space" do
-      space = Space.create! valid_attributes
+    it "assigns the requested api_space as @api_space" do
+      space = Api::Space.create! valid_attributes
       get :edit, {:id => space.to_param}, valid_session
-      expect(assigns(:space)).to eq(space)
+      expect(assigns(:api_space)).to eq(space)
     end
   end
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new Space" do
+      it "creates a new Api::Space" do
         expect {
           post :create, {:space => valid_attributes}, valid_session
-        }.to change(Space, :count).by(1)
+        }.to change(Api::Space, :count).by(1)
       end
 
-      it "assigns a newly created space as @space" do
+      it "assigns a newly created api_space as @api_space" do
         post :create, {:space => valid_attributes}, valid_session
-        expect(assigns(:space)).to be_a(Space)
-        expect(assigns(:space)).to be_persisted
+        expect(assigns(:api_space)).to be_a(Api::Space)
+        expect(assigns(:api_space)).to be_persisted
       end
 
-      it "redirects to the created space" do
+      it "redirects to the created api_space" do
         post :create, {:space => valid_attributes}, valid_session
-        expect(response).to redirect_to(Space.last)
+        expect(response).to redirect_to(Api::Space.last)
       end
     end
 
     context "with invalid params" do
-      it "assigns a newly created but unsaved space as @space" do
+      it "assigns a newly created but unsaved api_space as @api_space" do
         post :create, {:space => invalid_attributes}, valid_session
-        expect(assigns(:space)).to be_a_new(Space)
+        expect(assigns(:api_space)).to be_a_new(Api::Space)
       end
 
       it "re-renders the 'new' template" do
@@ -146,35 +146,35 @@ RSpec.describe SpacesController, type: :controller do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested space" do
-        space = Space.create! valid_attributes
+      it "updates the requested api_space" do
+        space = Api::Space.create! valid_attributes
         put :update, {:id => space.to_param, :space => new_attributes}, valid_session
         space.reload
         skip("Add assertions for updated state")
       end
 
-      it "assigns the requested space as @space" do
-        space = Space.create! valid_attributes
+      it "assigns the requested api_space as @api_space" do
+        space = Api::Space.create! valid_attributes
         put :update, {:id => space.to_param, :space => valid_attributes}, valid_session
-        expect(assigns(:space)).to eq(space)
+        expect(assigns(:api_space)).to eq(space)
       end
 
-      it "redirects to the space" do
-        space = Space.create! valid_attributes
+      it "redirects to the api_space" do
+        space = Api::Space.create! valid_attributes
         put :update, {:id => space.to_param, :space => valid_attributes}, valid_session
         expect(response).to redirect_to(space)
       end
     end
 
     context "with invalid params" do
-      it "assigns the space as @space" do
-        space = Space.create! valid_attributes
+      it "assigns the api_space as @api_space" do
+        space = Api::Space.create! valid_attributes
         put :update, {:id => space.to_param, :space => invalid_attributes}, valid_session
-        expect(assigns(:space)).to eq(space)
+        expect(assigns(:api_space)).to eq(space)
       end
 
       it "re-renders the 'edit' template" do
-        space = Space.create! valid_attributes
+        space = Api::Space.create! valid_attributes
         put :update, {:id => space.to_param, :space => invalid_attributes}, valid_session
         expect(response).to render_template("edit")
       end
@@ -182,17 +182,17 @@ RSpec.describe SpacesController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested space" do
-      space = Space.create! valid_attributes
+    it "destroys the requested api_space" do
+      space = Api::Space.create! valid_attributes
       expect {
         delete :destroy, {:id => space.to_param}, valid_session
-      }.to change(Space, :count).by(-1)
+      }.to change(Api::Space, :count).by(-1)
     end
 
-    it "redirects to the spaces list" do
-      space = Space.create! valid_attributes
+    it "redirects to the api_spaces list" do
+      space = Api::Space.create! valid_attributes
       delete :destroy, {:id => space.to_param}, valid_session
-      expect(response).to redirect_to(spaces_url)
+      expect(response).to redirect_to(api_spaces_url)
     end
   end
 
