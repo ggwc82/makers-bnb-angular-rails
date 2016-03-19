@@ -41,12 +41,17 @@ class Api::SpacesController < ApplicationController
   # PATCH/PUT /api/spaces/1
   # PATCH/PUT /api/spaces/1.json
   def update
+    p 'Hello'
+    p 'poooo'
+    p "#{api_space_params}"
+
     respond_to do |format|
       if @api_space.update(api_space_params)
         format.json { render json: @api_space }
         # format.html { redirect_to @api_space, notice: 'Space was successfully updated.' }
         # format.json { render :show, status: :ok, location: @api_space }
       else
+        p 'oh no'
         format.html { render :edit }
         format.json { render json: @api_space.errors, status: :unprocessable_entity }
       end
@@ -71,6 +76,7 @@ class Api::SpacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def api_space_params
-      params.require(:space).permit(:name, :price, :location, :size, :property_type, :id)
+      p "#{:space}"
+      params.require(:space).permit(:name, :price, :location, :size, :property_type, :id, :created_at, :updated_at)
     end
 end

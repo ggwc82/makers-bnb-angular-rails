@@ -9,9 +9,7 @@ makersBnB.controller('SpacesCtrl', ['$http', '$location', function( $http, $loca
     $http.post('http://localhost:3000/api/spaces', space).success(function(data) {
       console.log(data)
       self.spaces.push(data);
-      // self.currentspace = data.space;
       self.showSpace(data.space);
-
     });
   };
 
@@ -30,19 +28,19 @@ makersBnB.controller('SpacesCtrl', ['$http', '$location', function( $http, $loca
 
   self.editSpace = function(space){
     self.currentspace = space;
-
     $location.path('/spaces/edit/' + space.id)
   };
 
   self.updateSpace = function(space){
-    console.log(space)
-    $http.put('http://localhost:3000/api/spaces/' + space.id).then(function(response){
-      console.log(response)
-      $location.path('/')
+    console.log(space.id)
+    $http.put('http://localhost:3000/api/spaces/' + space.id, space).success(function(response){
+      self.showSpace(response.space);
     });
-
   };
 
-
-
+  self.deleteSpace = function(space){
+    $http.delete('http://localhost:3000/api/spaces/' + space.id).then(function(){
+      $location.path('/')
+    });
+  };
 }]);

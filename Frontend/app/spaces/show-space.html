@@ -1,13 +1,12 @@
 <section>
-
-{{ "This should be currentspace id =>" + spacescontroller.currentspace.id }}
 <h2> {{spacescontroller.currentspace.name}} </h2>
 <ul>
-<li> {{spacescontroller.currentspace.price}}</li>
-<li> {{spacescontroller.currentspace.location}} </li>
-<li> {{spacescontroller.currentspace.size}}</li>
-<li> {{spacescontroller.currentspace.property_type}} </li>
+  <li> {{spacescontroller.currentspace.price}}</li>
+  <li> {{spacescontroller.currentspace.location}} </li>
+  <li> {{spacescontroller.currentspace.size}}</li>
+  <li> {{spacescontroller.currentspace.property_type}} </li>
 <button ng-click='spacescontroller.editSpace(spacescontroller.currentspace)'>Edit Space</button>
+<button ng-click='spacescontroller.deleteSpace(spacescontroller.currentspace)'>Delete Space</button>
 </ul>
 
 </section>
