@@ -1,9 +1,30 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
-angular.module('makersBnB', [ 'ngRoute','makersBnB.index',
+var makersBnB = angular.module('makersBnB', ['ngRoute','makersBnB',
 ]).
 
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/spaces/index'});
-}]);
+config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  $routeProvider
+
+  .when('/', {
+    controller: 'SpacesCtrl',
+    templateUrl: 'spaces/default-spaces.html'
+    })
+  
+  .when('/new', {
+  	controller: 'SpacesCtrl',
+  	templateUrl: 'spaces/add-new-space.html'
+  })
+
+  .when('/spaces/:id', {
+  	controller: 'SpacesCtrl',
+  	templateUrl: 'spaces/show-space.html'
+  })
+  
+  //.otherwise('/');
+
+}])
+
+
+
+

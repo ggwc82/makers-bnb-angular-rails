@@ -24,14 +24,13 @@ class Api::SpacesController < ApplicationController
   # POST /api/spaces
   # POST /api/spaces.json
   def create
-    p '*****************'
-    p api_space_params
     @api_space = Api::Space.new(api_space_params)
 
     respond_to do |format|
       if @api_space.save
-        format.html { redirect_to @api_space, notice: 'Space was successfully created.' }
-        format.json { render :show, status: :created, location: @api_space }
+        format.json { render json: @api_space }
+        #format.html { redirect_to @api_space, notice: 'Space was successfully created.' }
+        #format.json { render :show, status: :created, location: @api_space }
       else
         format.html { render :new }
         format.json { render json: @api_space.errors, status: :unprocessable_entity }

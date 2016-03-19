@@ -1,0 +1,11 @@
+
+<h2>Lists by default all spaces</h2>
+{{ "This should be currentspace id =>" + currentspace }}
+<section ng-init='getSpaces()'>
+<a href='#/new'>Add new space</a>
+<ul ng-repeat='space in spaces'>
+  <li>{{space.id}}:{{space.name}}</li>
+</ul>
+
+
+</section>

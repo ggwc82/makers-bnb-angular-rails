@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   namespace :api do
-    resources :spaces
+    resources :spaces, defaults: { format: 'json' }
   end
 
   match '*any' => 'application#options', :via => [:options]
