@@ -10,7 +10,7 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
     controller: 'SpacesCtrl',
     templateUrl: 'spaces/default-spaces.html'
     })
-  
+
   .when('/new', {
   	controller: 'SpacesCtrl',
   	templateUrl: 'spaces/add-new-space.html'
@@ -20,7 +20,12 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
   	controller: 'SpacesCtrl',
   	templateUrl: 'spaces/show-space.html'
   })
-  
+
+  .when('/spaces/edit/:id', {
+    controller: 'SpacesCtrl',
+    templateUrl: 'spaces/edit-space.html'
+  })
+
   //.otherwise('/');
 
 }])

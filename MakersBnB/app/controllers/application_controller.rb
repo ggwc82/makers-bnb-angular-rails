@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   def add_allow_credentials_headers
     response.headers['Access-Control-Allow-Origin'] = request.headers['Origin'] || '*'
     response.headers['Access-Control-Allow-Credentials'] = 'true'
-    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE'
   end
 
   def options

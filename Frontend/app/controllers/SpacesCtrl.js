@@ -28,6 +28,21 @@ makersBnB.controller('SpacesCtrl', ['$http', '$location', function( $http, $loca
     });
   };
 
+  self.editSpace = function(space){
+    self.currentspace = space;
+
+    $location.path('/spaces/edit/' + space.id)
+  };
+
+  self.updateSpace = function(space){
+    console.log(space)
+    $http.put('http://localhost:3000/api/spaces/' + space.id).then(function(response){
+      console.log(response)
+      $location.path('/')
+    });
+
+  };
+
 
 
 }]);
