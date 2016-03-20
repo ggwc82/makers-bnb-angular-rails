@@ -1,7 +1,7 @@
 'use strict';
 
 var makersBnB = angular.module('makersBnB', ['ngRoute','makersBnB',
-]).
+  ]).
 
 config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $routeProvider
@@ -9,7 +9,7 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
   .when('/', {
     controller: 'SpacesCtrl',
     templateUrl: 'spaces/default-spaces.html'
-    })
+  })
 
   .when('/new', {
   	controller: 'SpacesCtrl',
@@ -25,9 +25,8 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
     controller: 'SpacesCtrl',
     templateUrl: 'spaces/edit-space.html'
   })
-
-  //.otherwise('/');
-
+  
+  .otherwise('/');
 }])
 
 

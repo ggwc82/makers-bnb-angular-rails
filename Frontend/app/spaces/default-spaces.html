@@ -1,8 +1,7 @@
-
-<h2>Lists by default all spaces</h2>
+<a href='#/new'>Add Space</a>
+<h2>Currently Available Spaces</h2>
 <section ng-init='spacescontroller.getSpaces()'>
-<a href='#/new'>Add new space</a>
-<ul ng-repeat='space in spacescontroller.spaces'>
-  <li>{{space.id}}:{{space.name}} <button ng-click='spacescontroller.showSpace(space)'>View Space</button></li>
-</ul>
+  <ul class='container' ng-repeat='space in spacescontroller.spaces'>
+  <a href ng-click='spacescontroller.showSpace(space)'><li><span class='list-name'>{{space.name}}</span><span class='list-location'>{{space.location}}</span><span class='list-price'>${{space.price}}</span></li></a>
+  </ul>
 </section>
