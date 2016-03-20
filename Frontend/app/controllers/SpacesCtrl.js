@@ -42,6 +42,6 @@ makersBnB.controller('SpacesCtrl', ['$http', '$location', function( $http, $loca
   };
 }]);
 
-.service('spacesService', function(){
+.service('spaces', function(){
 
 })
