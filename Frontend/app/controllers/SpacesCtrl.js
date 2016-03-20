@@ -1,15 +1,10 @@
 'use strict';
 
-makersBnB.controller('SpacesCtrl', ['$http', '$location', function( $http, $location) {
+makersBnB.controller('SpacesCtrl', ['$http', '$location', 'spacesService', function( $http, $location, spacesService) {
   var self = this;
-  self.spaces = [];
-  self.currentspace;
 
   self.create = function(space) {
-    $http.post('http://localhost:3000/api/spaces', space).success(function(data) {
-      self.spaces.push(data);
-      self.showSpace(data.space);
-    });
+    spacesService.createSpace(space);
   };
 
   self.getSpaces = function(){
@@ -19,10 +14,7 @@ makersBnB.controller('SpacesCtrl', ['$http', '$location', function( $http, $loca
   };
 
   self.showSpace = function(space){
-    $http.get('http://localhost:3000/api/spaces/' + space.id).then(function(response){
-      self.currentspace = response.data;
-      $location.path('/spaces/' + space.id)
-    });
+    spacesService.showSpace(space);
   };
 
   self.editSpace = function(space){
@@ -30,6 +22,35 @@ makersBnB.controller('SpacesCtrl', ['$http', '$location', function( $http, $loca
   };
 
   self.updateSpace = function(space){
+    spacesService.updateSpace(space);
+  };
+
+  self.deleteSpace = function(space){
+    spacesService.deleteSpace(space);
+  };
+
+}]);
+
+makersBnB.service('spacesService', ['$http', '$location', function($http, $location){
+  var self = this;
+  self.spaces = [];
+  self.currentspace;
+
+  this.createSpace = function(space){
+    $http.post('http://localhost:3000/api/spaces', space).success(function(data) {
+      self.spaces.push(data);
+      self.showSpace(data.space);
+    });
+  }
+
+  this.showSpace = function(space){
+    $http.get('http://localhost:3000/api/spaces/' + space.id).then(function(response){
+      self.currentspace = response.data;
+      $location.path('/spaces/' + space.id)
+    });
+  };
+
+  this.updateSpace = function(space){
     $http.put('http://localhost:3000/api/spaces/' + space.id, space).success(function(response){
       self.showSpace(response.space);
     });
@@ -40,8 +61,10 @@ makersBnB.controller('SpacesCtrl', ['$http', '$location', function( $http, $loca
       $location.path('/')
     });
   };
-}]);
 
-.service('spacesService', function(){
+}])
 
-})
+
+
+
+

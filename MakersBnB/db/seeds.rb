@@ -1,5 +1,5 @@
 25.times do
-Space.create(name: 'My space', price: 234, location: "newcastle", size: 3, property_type: "lighthouse")
+Api::Space.create(name: 'My space', price: 234, location: "newcastle", size: 3, property_type: "lighthouse")
 end
 
 # This file should contain all the record creation needed to seed the database with its default values.
