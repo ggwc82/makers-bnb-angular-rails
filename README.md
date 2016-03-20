@@ -1,4 +1,4 @@
-# Makers BnB Improved
+# Makers BnB Improved!
 
 ## Repo Badges
 
@@ -7,7 +7,7 @@
 
 ## Description
 
-It's Makers BnB, but Improved! We've rebuilt this project using Rails on the backend and AngularJS on the frontend. 
+It's Makers BnB, but Improved! We've rebuilt this project using Rails on the backend and AngularJS on the frontend.
 
 
 ## Team Members
@@ -66,18 +66,18 @@ AngularJS with Angular Seed for the seperate frontend, running on Node.js with P
 ### MVP
 
 ```
-As a host, 
-so I can list a space to rent, 
+As a host,
+so I can list a space to rent,
 I want to be able to list a space.
 ```
 ```
-As a guest, 
-so that I know what spaces are available, 
+As a guest,
+so that I know what spaces are available,
 I want to see a list of available spaces.
 ```
 ```
-As a host, 
-so that I can explain what the place is like, 
+As a host,
+so that I can explain what the place is like,
 I want to be able to describe a space.
 ```
 ```
