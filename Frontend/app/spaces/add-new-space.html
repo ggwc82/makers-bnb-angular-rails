@@ -1,0 +1,18 @@
+<section>
+
+{{ "This should be currentspace id =>" + spacescontroller.currentspace.id }}
+<h2>Add a new space</h2>
+<a href='#/'>Back to default list</a>
+<form novalidate class='create-space-form'>
+name: <input type='text' ng-model='space.name' /><br/>
+price: <input type='integer' ng-model='space.price' /><br/>
+location: <input type='text' ng-model='space.location' /><br/>
+size: <input type='float' ng-model='space.size' /><br/>
+property type: <input type='text' ng-model='space.property_type' /><br/>
+<input type='submit' ng-click='spacescontroller.create(space)' value='Create space' />
+<a ng-href='#/spaces/{{spacescontroller.currentspace.id}}'>Goto Created Space</a>
+</form>
+
+<pre>space = {{ space | json }} </pre>
+
+</section>

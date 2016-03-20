@@ -45,6 +45,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
+  gem 'rack-cors', :require => 'rack/cors'
 end
 
 group :development do
