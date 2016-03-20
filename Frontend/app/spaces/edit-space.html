@@ -1,12 +1,9 @@
-
+<a href='#/'>Homepage</a>
 <form novalidate class='edit-space-form'>
-name: <input type='text' ng-model='spacescontroller.currentspace.name' /><br/>
-price: <input type='integer' ng-model='spacescontroller.currentspace.price' /><br/>
-location: <input type='text' ng-model='spacescontroller.currentspace.location' /><br/>
-size: <input type='float' ng-model='spacescontroller.currentspace.size' /><br/>
-property type: <input type='text' ng-model='spacescontroller.currentspace.property_type' /><br/>
-<input type='submit' ng-click='spacescontroller.updateSpace(spacescontroller.currentspace)' value='Update space' />
+<label>Name: </label><input type='text' ng-model='spacescontroller.currentspace.name' /><br/>
+<label>Price: $</label> <input type='integer' ng-model='spacescontroller.currentspace.price' /><br/>
+<label>Location: </label> <input type='text' ng-model='spacescontroller.currentspace.location' /><br/>
+<label>Size: </label><input type='float' ng-model='spacescontroller.currentspace.size' /><br/>
+<label>Property Type: </label><input type='text' ng-model='spacescontroller.currentspace.property_type' /><br/>
+<input type='submit' ng-click='spacescontroller.updateSpace(spacescontroller.currentspace)' value='Update Space' />
 </form>
-
-<div>
-</div>

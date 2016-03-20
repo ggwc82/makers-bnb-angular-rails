@@ -1,4 +1,36 @@
-/* app css stylesheet */
+* {
+  text-align: center;
+}
+
+span {
+    display: inline-block; 
+    margin: 5px 10px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.container {
+  flex-direction: row | row-reverse | column | column-reverse;
+  background-color: #D8D8D8;
+  margin: 20px;
+}
+
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: right;
+}
+
+input {
+  display: inline-block;
+  float: left;
+}
+
+h1 { color: #ff4411; font-size: 48px; font-family: 'Signika', sans-serif; padding-bottom: 10px; }
 
 .menu {
   list-style: none;
