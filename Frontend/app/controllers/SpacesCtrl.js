@@ -1,6 +1,6 @@
 'use strict';
 
-makersBnB.controller('SpacesCtrl', ['$http', '$location', function( $http, $location) {
+makersBnB.controller('SpacesCtrl', ['$http', '$location', 'SpacesService', function( $http, $location, SpacesService) {
   var self = this;
   self.spaces = [];
   self.currentspace;
@@ -13,9 +13,9 @@ makersBnB.controller('SpacesCtrl', ['$http', '$location', function( $http, $loca
   };
 
   self.getSpaces = function(){
-    $http.get('http://localhost:3000/api/spaces.json').then(function(response){
-      self.spaces = response.data.reverse();
-    });
+    SpacesService.getSpaces().then(function(response){
+     self.spaces = response;
+   });
   };
 
   self.showSpace = function(space){
@@ -41,3 +41,17 @@ makersBnB.controller('SpacesCtrl', ['$http', '$location', function( $http, $loca
     });
   };
 }])
+
+makersBnB.service('SpacesService', ['$http', '$location', function($http, $location){
+
+ this.getSpaces = function(){
+   return $http.get('http://localhost:3000/api/spaces.json').then(function(response){
+     self.spaces = response.data.reverse();
+     return self.spaces
+   });
+ };
+}])
+
+
+
+
