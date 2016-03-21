@@ -44,12 +44,12 @@ makersBnB.controller('SpacesCtrl', ['$http', '$location', 'SpacesService', funct
 
 makersBnB.service('SpacesService', ['$http', '$location', function($http, $location){
 
- this.getSpaces = function(){
-   return $http.get('http://localhost:3000/api/spaces.json').then(function(response){
-     self.spaces = response.data.reverse();
-     return self.spaces
-   });
- };
+  this.getSpaces = function(){
+    return $http.get('http://localhost:3000/api/spaces.json').then(function(response){
+      self.spaces = response.data.reverse();
+      return self.spaces
+    });
+  };
 }])
 
 
