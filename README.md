@@ -1,4 +1,4 @@
-# Makers BnB Improved
+# Makers BnB Improved!
 
 ## Repo Badges
 
@@ -7,7 +7,7 @@
 
 ## Description
 
-It's Makers BnB, but Improved! We've rebuilt this project using Rails on the backend and AngularJS on the frontend. 
+It's Makers BnB, but Improved! We've rebuilt this project using Rails on the backend and AngularJS on the frontend.
 
 
 ## Team Members
@@ -21,7 +21,7 @@ It's Makers BnB, but Improved! We've rebuilt this project using Rails on the bac
 ## Technology Stack
 
 - AngularJS
-- Ruby on Rails
+- Ruby on Rails (API)
 
 
 ## Installation Instructions
@@ -58,15 +58,40 @@ It's Makers BnB, but Improved! We've rebuilt this project using Rails on the bac
 
 ## Implementation
 
-:construction:
+AngularJS with Angular Seed for the seperate frontend, running on Node.js with Protractor for e2e tests and Karma for unit tests. Ruby on Rails API backend communicating via JSON and http requests. Full CRUD functionality was implemented for the Spaces model. The next feature to implement would be to create a Users model, with authentication via JSON Web Tokens and Devise for users to sign up, in and out.
 
 
-## User Stories
+## Completed User Stories
 
 ### MVP
 
-:construction:
-
-### Nice to haves
-
-:construction:
+```
+As a host,
+so I can list a space to rent,
+I want to be able to list a space.
+```
+```
+As a guest,
+so that I know what spaces are available,
+I want to see a list of available spaces.
+```
+```
+As a host,
+so that I can explain what the place is like,
+I want to be able to describe a space.
+```
+```
+As a host,
+so that I can list all my properties,
+I want to be able to list multiple spaces.
+```
+```
+As a host,
+so that I can make changes,
+I want to be able to update my own spaces.
+```
+```
+As a host,
+so that I can make changes,
+I want to be able to delete my own spaces.
+```
